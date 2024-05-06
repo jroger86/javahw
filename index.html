@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Webpage</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Ground -->
+        <a-plane src="path/to/sand.jpg" rotation="-90 0 0" width="100" height="100"></a-plane>
+
+        <!-- Background -->
+        <a-sky color="blue"></a-sky>
+
+        <!-- Sphere -->
+        <a-sphere color="red" radius="1" position="0 1.25 -5" id="sphere" onclick="changeSphereColor()"></a-sphere>
+
+        <!-- Cylinder -->
+        <a-cylinder color="green" radius="0.75" height="2" position="2 1 -5" id="cylinder" onclick="rotateCylinder()"></a-cylinder>
+    </a-scene>
+
+    <script>
+        function changeSphereColor() {
+            var sphere = document.getElementById('sphere');
+            sphere.setAttribute('color', 'yellow');
+        }
+
+        function rotateCylinder() {
+            var cylinder = document.getElementById('cylinder');
+            cylinder.setAttribute('animation', 'property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true');
+        }
+    </script>
+</body>
+</html>
